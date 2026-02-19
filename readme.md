@@ -15,13 +15,9 @@ API desenvolvida com Node.js, Prisma e PostgreSQL.
 ## 1️⃣ Subir o banco de dados
 
 Execute:
-bash
-docker run --name postgres-db \
-  -e POSTGRES_USER=postgres \
-  -e POSTGRES_PASSWORD=postgres \
-  -e POSTGRES_DB=app_db \
-  -p 5432:5432 \
-  -d postgres
+
+docker run --name postgres-db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=app_db -p 5432:5432 -d postgres
+
 
 2️⃣ Criar arquivo .env
 
@@ -89,3 +85,4 @@ Facilidade de desenvolvimento
 Organização do código
 
 Boa base para crescimento futuro
+
