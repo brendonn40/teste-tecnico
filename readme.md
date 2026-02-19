@@ -72,7 +72,7 @@ npm run dev
 
 # Testando a aplicação
 
-1️⃣ Clique em cadastro e preencha os dados.
+1️⃣ Clique em cadastre se e preencha os dados.
 
 2️⃣ Faça o login com seu email e senha
 
@@ -100,6 +100,7 @@ Facilidade de desenvolvimento
 Organização do código
 
 Boa base para crescimento futuro
+
 
 
 
