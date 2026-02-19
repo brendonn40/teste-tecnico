@@ -1,0 +1,18 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+package-lock.json
+yarn.lock
+
+build
+out
+
+.env
+
+*.pem
+.vscode/launch.json
+.vercel

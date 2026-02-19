@@ -1,0 +1,52 @@
+name: PROD deploy szv-certificacoes
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install dependences
+      run:  |
+        yarn install
+
+    - name: generate dependences
+      run:  |
+        yarn prisma generate
+        
+    - name: build
+      run:  |
+        yarn build
+
+    - name: copy package to zip
+      run:  |
+        cp package.json ./build/package.json
+        cp yarn.lock ./build/yarn.lock
+        cp -r prisma ./build/prisma
+        cp -r src/services/mail/templates ./build/services/mail/templates
+
+    - name: Zip Package
+      run: |
+        cd ${{ github.workspace }}/build 
+        zip -r ${{ github.workspace }}/build.zip *
+
+    # - name: Zip Package
+    #   run: |
+    #     cd ${{ github.workspace }}/test 
+    #     zip -r ${{ github.workspace }}/test.zip *
+
+    - name: Deploy to EB
+      uses: einaregilsson/beanstalk-deploy@v22
+      with:
+        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        application_name: api-szvcertificacoes
+        environment_name: Api-szvcertificacoes-env
+        region: us-east-1
+        version_label: ${{ github.run_id }}
+        version_description: ${{ github.sha }}
+        deployment_package: ${{ github.workspace }}/build.zip

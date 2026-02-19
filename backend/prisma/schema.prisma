@@ -1,0 +1,44 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["omitApi"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model users {
+  id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email     String
+  name      String
+  password  String
+  address   String
+  createdAt DateTime  @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt DateTime? @db.Timestamptz(6)
+}
+
+model orders {
+  id        String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name      String
+  email     String
+  address   String
+  payment   String
+  createdAt DateTime      @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime?     @updatedAt @db.Timestamptz(6)
+  deletedAt DateTime?     @db.Timestamptz(6)
+  items     order_items[]
+}
+
+model order_items {
+  id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  orderId   String    @db.Uuid
+  order     orders    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product   String
+  quantity  Int
+  createdAt DateTime  @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt DateTime? @db.Timestamptz(6)
+}
