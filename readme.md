@@ -14,27 +14,31 @@ API desenvolvida com Node.js, Prisma e PostgreSQL.
 
 ## 1️⃣ Subir o banco de dados
 
-Execute:
+Execute o comando abaixo para iniciar um container PostgreSQL:
 
 docker run --name postgres-db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=app_db -p 5432:5432 -d postgres
 
-
 2️⃣ Criar arquivo .env
 
-Na raiz do projeto, crie um arquivo .env com:
+Na raiz do projeto, crie um arquivo .env com o seguinte conteúdo:
 
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/app_db"
 DIRECT_URL="postgresql://postgres:postgres@localhost:5432/app_db"
 JWT_SECRET="sua_chave_secreta_aqui"
 
 3️⃣ Instalar dependências
-yarn install ou npm install
 
-4️⃣ Rodar as migrations
+Com Yarn: yarn install ou com NPM: npm install
+
+4️⃣ Gerar os tipos do Prisma
+yarn prisma generate ou npx prisma generate
+
+5️⃣ Rodar as migrations
 yarn prisma migrate dev ou npx prisma migrate dev
 
-5️⃣ Iniciar o projeto
-yarn dev ou npm run dev
+6️⃣ Iniciar o projeto
+
+Com Yarn: yarn dev ou com NPM: npm run dev
 
 
 
@@ -85,4 +89,8 @@ Facilidade de desenvolvimento
 Organização do código
 
 Boa base para crescimento futuro
+
+
+qualquer duvida enviar um email para: brendoncesar40@gmail.com
+
 
