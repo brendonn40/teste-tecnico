@@ -70,11 +70,22 @@ yarn dev
 npm run dev
 
 
+# Testando a aplicação
+
+1️⃣ Clique em cadastro e preencha os dados.
+
+2️⃣ Faça o login com seu email e senha
+
+3️⃣ Adicione itens ao carrinho e finalize o pedido
+
+
 # Decisões Técnicas
 
 As tecnologias foram escolhidas priorizando simplicidade, produtividade e organização do projeto.
 
 No backend, utilizei Node.js para construir a API por ser leve, amplamente utilizado e eficiente para aplicações web. Escolhi o Prisma como ORM por facilitar a modelagem do banco com tipagem segura e migrations organizadas. O banco de dados é PostgreSQL, por ser estável, confiável e adequado para aplicações que podem crescer no futuro.
+
+A API foi estruturada separando responsabilidades em routes, controllers e services para manter organização, clareza e facilidade de manutenção.
 
 A autenticação foi feita com JWT, por ser simples de implementar e funcionar bem em APIs desacopladas.
 
@@ -89,6 +100,7 @@ Facilidade de desenvolvimento
 Organização do código
 
 Boa base para crescimento futuro
+
 
 
 
