@@ -31,9 +31,11 @@ JWT_SECRET="sua_chave_secreta_aqui"
 Com Yarn: yarn install ou com NPM: npm install
 
 4️⃣ Gerar os tipos do Prisma
+
 yarn prisma generate ou npx prisma generate
 
 5️⃣ Rodar as migrations
+
 yarn prisma migrate dev ou npx prisma migrate dev
 
 6️⃣ Iniciar o projeto
@@ -100,6 +102,7 @@ Facilidade de desenvolvimento
 Organização do código
 
 Boa base para crescimento futuro
+
 
 
 
