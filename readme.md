@@ -91,7 +91,9 @@ A API foi estruturada separando responsabilidades em routes, controllers e servi
 
 A autenticação foi feita com JWT, por ser simples de implementar e funcionar bem em APIs desacopladas.
 
-No frontend, utilizei React com Vite para ter um ambiente rápido de desenvolvimento e uma boa organização baseada em componentes. A separação entre frontend e backend facilita manutenção e futuras evoluções do sistema.
+No frontend, utilizei React com Vite para ter um ambiente rápido de desenvolvimento e uma boa organização baseada em componentes. Para a interface, optei por shadcn/ui, que permite construir componentes reutilizáveis e acessíveis, mantendo controle total do código e facilidade de customização com Tailwind.
+
+Para gerenciamento de estado, utilizei Zustand por ser leve e simples, adequado para centralizar o JWT de autenticação e os dados do carrinho de compras sem adicionar complexidade desnecessária.
 
 O uso de Docker para o banco ajuda a manter o ambiente padronizado e evita problemas de configuração.
 
@@ -102,6 +104,7 @@ Facilidade de desenvolvimento
 Organização do código
 
 Boa base para crescimento futuro
+
 
 
 
